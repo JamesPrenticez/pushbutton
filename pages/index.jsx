@@ -3,7 +3,7 @@ import Head from 'next/head'
 export default function Home({data}) {
 
   const ip = async () => {
-    const res = await fetch('https://pushbutton.vercel.app/api/ip')
+    const res = await fetch('https://pushbutton.vercel.app/api')
     //const res = await fetch('http://localhost:3000/api/ip')
     console.log(res)
     const data = await res.json()
@@ -19,7 +19,14 @@ export default function Home({data}) {
 }
 
   const vercel = async () => {
-  const res = await fetch('http://localhost:3000/api/vercel')
+  const res = await fetch('https://pushbutton.vercel.app/api/vercel')
+  //const res = await fetch('http://localhost:3000/api/vercel')
+  console.log(res)
+  const data = await res.json()
+  console.log(data)
+}
+  const cow = async () => {
+  const res = await fetch('https://pushbutton.vercel.app/api/cow')
   //const res = await fetch('http://localhost:3000/api/vercel')
   console.log(res)
   const data = await res.json()
@@ -36,9 +43,9 @@ export default function Home({data}) {
 
       <div 
         className='bg-green-600 h-32 w-32 text-white m-8'
-        onClick={() => geeks()}
+        onClick={() => ip()}
       >
-        Geeks
+        IP
       </div>
 
       <div 
@@ -53,6 +60,13 @@ export default function Home({data}) {
         onClick={() => vercel()}
       >
         vercel
+      </div>
+
+      <div 
+        className='bg-yellow-600 h-32 w-32 text-white m-8'
+        onClick={() => cow()}
+      >
+        cow
       </div>
 
     </>
