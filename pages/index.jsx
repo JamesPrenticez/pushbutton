@@ -1,6 +1,31 @@
 import Head from 'next/head'
 
 export default function Home({data}) {
+
+  const ip = async () => {
+    const res = await fetch('https://pushbutton.vercel.app/api/ip')
+    //const res = await fetch('http://localhost:3000/api/ip')
+    console.log(res)
+    const data = await res.json()
+    console.log(data)
+  }
+
+  const hello = async () => {
+  const res = await fetch('https://pushbutton.vercel.app/api/hello')
+  //const res = await fetch('http://localhost:3000/api/hello')
+  console.log(res)
+  const data = await res.json()
+  console.log(data)
+}
+
+  const vercel = async () => {
+  const res = await fetch('http://localhost:3000/api/vercel')
+  //const res = await fetch('http://localhost:3000/api/vercel')
+  console.log(res)
+  const data = await res.json()
+  console.log(data)
+}
+
   return (
     <>
       <Head>
@@ -9,19 +34,36 @@ export default function Home({data}) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <p>
-        {data.message}
-      </p>
+      <div 
+        className='bg-green-600 h-32 w-32 text-white m-8'
+        onClick={() => geeks()}
+      >
+        Geeks
+      </div>
+
+      <div 
+        className='bg-red-600 h-32 w-32 text-white m-8'
+        onClick={() => hello()}
+      >
+        hello
+      </div>
+
+      <div 
+        className='bg-blue-600 h-32 w-32 text-white m-8'
+        onClick={() => vercel()}
+      >
+        vercel
+      </div>
 
     </>
   )
 }
 
-export async function getServerSideProps(){
-  const res = await fetch('https://pushbutton.vercel.app/api/hello')
-  //const res = await fetch('http://localhost:3000/api/hello')
-  //const data = await res.json()
-  const data = await res.json()
+// export async function getServerSideProps(){
+//   const res = await fetch('https://pushbutton.vercel.app/api/hello')
+//   //const res = await fetch('http://localhost:3000/api/hello')
+//   //const data = await res.json()
+//   const data = await res.json()
 
-  return {props: {data}}
-}
+//   return {props: {data}}
+// }
