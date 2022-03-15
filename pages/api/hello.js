@@ -1,7 +1,7 @@
 const {spawn} = require('child_process');
 
 export default async function handler(req, res) {
-    let python = spawn('python', ['hello.py']);
+    let python = spawn('python', [__dirname +'python/hello.py']);
     let dataToSend = '';
  
     for await (const data of python.stdout){
@@ -11,6 +11,11 @@ export default async function handler(req, res) {
 
     python.stderr.on('data', (data) => {
       console.error(data.toString());
+    });
+
+    python.on('close', (code) => {
+      console.log(`child process close all stdio with code ${code}`);
+      console.log(dataToSend)
     });
 
   return res.status(200).json({ message: dataToSend})
