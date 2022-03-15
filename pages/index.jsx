@@ -33,6 +33,7 @@ export default function Home({data}) {
   console.log(data)
 }
 
+//https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream < -This!
 fetch('https://pushbutton.vercel.app/api')
 .then(response => response.body)
 .then(rb => {
