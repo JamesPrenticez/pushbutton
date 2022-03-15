@@ -18,7 +18,8 @@ export default function Home({data}) {
 }
 
 export async function getServerSideProps(){
-  const res = await fetch('http://localhost:3000/api/hello')
+  const res = await fetch('https://pushbutton.vercel.app/api/hello')
+  //const res = await fetch('http://localhost:3000/api/hello')
   //const data = await res.json()
   const data = await res.json()
 
