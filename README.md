@@ -14,10 +14,14 @@ A typical user is a construction company with many projects and multiple subcont
 2. User Authenticaion
 
 3. File Storage for PDF Invoices
-    - Drag Drop
+    - Drag Drop [https://dev.to/bmvantunes/react-file-upload-with-drag-n-drop-and-progress-bar-2k0m][https://www.youtube.com/watch?v=MAw0lQKqjRA]
 
 4. Invoice to Data Processing
     - invoice2data 
       - https://github.com/invoice-x/invoice2data
       - https://github.com/invoice-x/invoice2data
+
+https://jsonlint.com/
+
+    
 
