@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import FileHeader from './FileHeader';
 import ProgressBar from "./ProgressBar";
 
-export default function SingleFileWithProgress({file, onDelete}) {
+export default function SingleFileWithProgress({file, onUpload, onDelete}) {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
     async function upload(){
       const url = await uploadFile(file, setProgress)
       console.log("file upload success: ", url)
+      onUpload(file, url)
     }
       upload()
   }, [])
