@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
+import ProgressBar from "./ProgressBar";
 
-function SingleFileWithProgress({file}) {
+export default function SingleFileWithProgress({file}) {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
@@ -8,11 +9,16 @@ function SingleFileWithProgress({file}) {
       const url = await uploadFile(file, setProgress)
       console.log(url)
     }
-    upload()
+      upload()
   }, [])
 
+console.log(progress)
+
   return (
-    <div>SingleFileWithProgress</div>
+    <>
+    <div className='text-white'>SingleFileWithProgress {progress}</div>
+    <ProgressBar progress={progress} />
+    </>
   )
 }
 
@@ -41,5 +47,3 @@ function uploadFile(file, onProgress){
     xhr.send(formData)
   })
 }
-
-export default SingleFileWithProgress
