@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import FileHeader from './FileHeader';
+import React, { useEffect, useState } from "react" 
+import FileHeader from "./FileHeader";
 import ProgressBar from "./ProgressBar";
 
-export default function SingleFileWithProgress({file, onUpload, onDelete}) {
+export default function SingleFileWithProgress({file, errors, onUpload, onDelete}) {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
@@ -15,10 +15,10 @@ export default function SingleFileWithProgress({file, onUpload, onDelete}) {
   }, [])
 
   return (
-    <div className='bg-[#001e3c] border border-[#1e4976] p-2 rounded-md'>
+    <>
       <FileHeader file={file} onDelete={onDelete} />
-      <ProgressBar progress={progress} />
-    </div>
+      <ProgressBar progress={progress} errors={errors}/>
+    </>
   )
 }
 

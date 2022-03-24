@@ -1,20 +1,22 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
+import { useField } from "formik";
 import SingleFileWithProgress from "./SingleFileWithProgress";
+import ValidationError from "./ValidationError";
 
-export default function FileUpload() {
+export default function MultipleFileUpload({name}) {
   const [files, setFiles] = useState([]);
+  const [ _, __, helpers] = useField(name)
+
+  useEffect(() => {
+    helpers.setValue(files)
+    //helpers.setTouched(true)
+  }, [files])
 
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     const mappedAccepted = acceptedFiles.map((file) => ({ file, errors: [] }));
     setFiles((current) => [...current, ...mappedAccepted, ...rejectedFiles]);
   }, []);
-
-  const { getRootProps, getInputProps } = useDropzone({ onDrop });
-
-  const onDelete = (file) => {
-    setFiles((currentFiles) => currentFiles.filter((fileWrapper) => fileWrapper.file !== file))
-  }
 
   const onUpload = (file, url) => {
     setFiles((currentFiles) => currentFiles.map((fileWrapper) => {
@@ -25,6 +27,17 @@ export default function FileUpload() {
     }))
   }
 
+  const onDelete = (file) => {
+    setFiles((currentFiles) => currentFiles.filter((fileWrapper) => fileWrapper.file !== file))
+  }
+
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop,
+    accept: 'image/*',
+    maxSize: 300 * 1024, //approx 300kb
+    maxFiles: 2
+  });
+  
   return (
     <>
       <div
@@ -47,13 +60,25 @@ export default function FileUpload() {
       </div>
 
       {files.map((fileWrapper, index) => (
-        <SingleFileWithProgress
-          key={index}
-          file={fileWrapper.file}
-          onUpload={onUpload}
-          onDelete={onDelete}
-        />
-      ))}
+        <div className='bg-[#001e3c] border border-[#1e4976] p-2 rounded-md'>
+          {fileWrapper.errors.length ? 
+            <ValidationError 
+              key={index}
+              file={fileWrapper.file}
+              errors={fileWrapper.errors}
+              onDelete={onDelete}
+            />
+          :
+            <SingleFileWithProgress
+              key={index}
+              file={fileWrapper.file}
+              errors={fileWrapper.errors}
+              onUpload={onUpload}
+              onDelete={onDelete}
+            />
+          }
+          </div>
+        ))}
     </>
   );
 }

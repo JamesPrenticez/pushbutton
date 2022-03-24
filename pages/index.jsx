@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import Head from "next/head";
 import { Form, Formik } from "formik";
-import FileUpload from "../components/FileUpload"
+import MultipleFileUpload from "../components/MultipleFileUpload"
 import ProgressBar from "../components/ProgressBar";
 
 export default function Home({ data }) {
@@ -19,10 +19,10 @@ export default function Home({ data }) {
       </Head>
 
       <div className="flex justify-center w-full">
-        <Formik  initialValues={{}} onSubmit={() => {}}>
+        <Formik  initialValues={{files: []}} onSubmit={() => {}}>
           {({ values, errors }) => (
-            <Form className="w-1/2 p-16 space-y-8">
-              <FileUpload />
+            <Form className="w-1/2 p-16 space-y-2">
+              <MultipleFileUpload name='files'/>
               <pre className="text-white ">{JSON.stringify({ values, errors }, null, 4)}</pre>
             </Form>
           )}
