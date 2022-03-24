@@ -4,11 +4,19 @@ import SingleFileWithProgress from './SingleFileWithProgress'
 
 export default function FileUpload() {
   const [files, setFiles] = useState([])
+
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     const mappedAccepted = acceptedFiles.map(file => ({file, errors: []}))
     setFiles(current => [...current, ...mappedAccepted, ...rejectedFiles])
   }, [])
+
   const {getRootProps, getInputProps} = useDropzone({onDrop})
+
+  const onDelete = (file) => {
+    setFiles((currentFiles) => {
+      return currentFiles.filter((fileWrapper) => fileWrapper.file !== file)
+    })
+  }
 
   return (
     <>
@@ -27,7 +35,7 @@ export default function FileUpload() {
         <p className='w-full text-center'>Click or drag and drop files to upload</p>
       </div>
       {files.map((fileWrapper, index) => (
-        <SingleFileWithProgress key={index} file={fileWrapper.file} />
+        <SingleFileWithProgress key={index} file={fileWrapper.file} onDelete={onDelete} />
       ))}
     </>
   );

@@ -38,7 +38,7 @@ export default function Home({ data }) {
   );
 }
 
-// #001e3c
-// #0a1929
-
-//
+// #0a1929 - dark
+// #001e3c - less dark
+// #1e4976 - border
+// #007FFF - light blue

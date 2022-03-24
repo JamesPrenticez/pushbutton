@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from 'react'
+import FileHeader from './FileHeader';
 import ProgressBar from "./ProgressBar";
 
-export default function SingleFileWithProgress({file}) {
+export default function SingleFileWithProgress({file, onDelete}) {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
     async function upload(){
       const url = await uploadFile(file, setProgress)
-      console.log(url)
+      console.log("file upload success: ", url)
     }
       upload()
   }, [])
 
-console.log(progress)
-
   return (
-    <>
-    <div className='text-white'>SingleFileWithProgress {progress}</div>
-    <ProgressBar progress={progress} />
-    </>
+    <div className='bg-[#001e3c] border border-[#1e4976] p-2 rounded-md'>
+      <FileHeader file={file} onDelete={onDelete} />
+      <ProgressBar progress={progress} />
+    </div>
   )
 }
 
