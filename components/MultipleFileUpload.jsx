@@ -60,17 +60,15 @@ export default function MultipleFileUpload({name}) {
       </div>
 
       {files.map((fileWrapper, index) => (
-        <div className='bg-[#001e3c] border border-[#1e4976] p-2 rounded-md'>
+        <div key={index} className='bg-[#001e3c] border border-[#1e4976] p-2 rounded-md'>
           {fileWrapper.errors.length ? 
             <ValidationError 
-              key={index}
               file={fileWrapper.file}
               errors={fileWrapper.errors}
               onDelete={onDelete}
             />
           :
             <SingleFileWithProgress
-              key={index}
               file={fileWrapper.file}
               errors={fileWrapper.errors}
               onUpload={onUpload}
