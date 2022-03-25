@@ -2,7 +2,7 @@ const {spawn} = require('child_process');
 
 export default async function handler(req, res) {
     //let python = spawn('python', [__dirname + '/hi.py']);
-    let python = spawn('python', ["C:/Users/prent/github/pushbutton/" + "api/hi.py"]);
+    let python = spawn('python', ["C:/Users/prent/github/pushbutton/" + "api/date.py"]);
     let dataToSend = '';
  
     for await (const data of python.stdout){

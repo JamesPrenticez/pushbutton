@@ -24,7 +24,7 @@ A typical user is a construction company with many projects and multiple subcont
     - python enviroment for local host
       - pip install virtualenv (install)
       - virtualenv venv (create)
-      - source venv/Scripts/activate (run)
+      - ``` source venv/Scripts/activate ``` (run)
 
 
 
