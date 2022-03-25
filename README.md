@@ -23,5 +23,3 @@ A typical user is a construction company with many projects and multiple subcont
 
 https://jsonlint.com/
 
-    
-

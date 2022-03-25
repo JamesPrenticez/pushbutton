@@ -1,22 +1,17 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import Head from "next/head";
+import Header from '../components/Header';
 import { Form, Formik } from "formik";
 import MultipleFileUpload from "../components/MultipleFileUpload"
-import ProgressBar from "../components/ProgressBar";
 
-export default function Home({ data }) {
-  // const [progress, setProgress] = useState(0)
-  //   console.log('progress', progress)
-
-  // useEffect(() => {
-  //     progress < 100 && setTimeout(() => setProgress(progress + 25), 100);
-  // }, [progress]);
-
+export default function Home() {
   return (
     <>
       <Head>
         <title>Push Button | Home</title>
       </Head>
+
+      <Header />
 
       <div className="flex justify-center w-full">
         <Formik  initialValues={{files: []}} onSubmit={() => {}}>
@@ -28,12 +23,6 @@ export default function Home({ data }) {
           )}
         </Formik>
       </div>
-
-      {/* <div className=" px-64">
-        <ProgressBar progress={progress} />
-       </div>
-       */}
-
     </>
   );
 }
