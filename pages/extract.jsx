@@ -4,14 +4,37 @@ import Header from '../components/Header';
 import axios from 'axios';
 
 export default function Extract() {
-  const [result, setResult] = useState('')
+  const [result0, setResult0] = useState('')
+  const [result1, setResult1] = useState('')
+  const [result2, setResult2] = useState('')
 
-  async function handleClick(){
+  async function handleClick0(){
     try {
-        //const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}api/message`)
-        const response = await axios.get('http://localhost:3000/api/hello');
+        const response = await axios.get('http://localhost:3000/api/python');
         console.log(response);
-        setResult(response.data.message)
+        setResult0(response.data.message)
+      } catch (error) {
+        console.error(error);
+      }
+  }
+
+  async function handleClick1(){
+    try {
+        const response = await fetch('api/date')
+        //const response = await axios.get('http://localhost:3000/api/python');
+        console.log(response);
+        setResult1(response.data)
+      } catch (error) {
+        console.error(error);
+      }
+  }
+
+  async function handleClick2(){
+    try {
+        const response = await fetch('api/cow')
+        //const response = await axios.get('http://localhost:3000/api/python');
+        console.log(response);
+        setResult2(response.data)
       } catch (error) {
         console.error(error);
       }
@@ -31,13 +54,43 @@ export default function Extract() {
 
           <div className="flex justify-between bg-[#21262b] cursor-pointer p-4 text-white">
             <div className="">
-              <p>Result = {result}</p>
+              <p>LocalHost = {result0}</p>
             </div>
 
             <div className="ml-auto ">
               <button
                 className="bg-[#007FFF] p-4"
-                onClick={() => handleClick()}
+                onClick={() => handleClick0()}
+              >
+                FETCH
+              </button>
+            </div>
+          </div>
+
+          <div className="flex justify-between bg-[#21262b] cursor-pointer p-4 text-white">
+            <div className="">
+              <p>One Date= {result1}</p>
+            </div>
+
+            <div className="ml-auto ">
+              <button
+                className="bg-[#007FFF] p-4"
+                onClick={() => handleClick1()}
+              >
+                FETCH
+              </button>
+            </div>
+          </div>
+
+          <div className="flex justify-between bg-[#21262b] cursor-pointer p-4 text-white">
+            <div className="">
+              <p>Two Cow = {result2}</p>
+            </div>
+
+            <div className="ml-auto ">
+              <button
+                className="bg-[#007FFF] p-4"
+                onClick={() => handleClick2()}
               >
                 FETCH
               </button>

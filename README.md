@@ -20,6 +20,14 @@ A typical user is a construction company with many projects and multiple subcont
     - invoice2data 
       - https://github.com/invoice-x/invoice2data
       - https://github.com/invoice-x/invoice2data
+    
+    - python enviroment for local host
+      - pip install virtualenv (install)
+      - virtualenv venv (create)
+      - source venv/Scripts/activate (run)
 
-https://jsonlint.com/
+
+
+# Helpful
+- https://jsonlint.com/
 
