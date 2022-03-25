@@ -6,5 +6,3 @@ class handler(BaseHTTPRequestHandler):
       now = datetime.datetime.now() 
       msg = f'Today is {now}'
       return msg
-  
-print(handler.date(""))
