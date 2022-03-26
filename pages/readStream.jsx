@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Head from "next/head";
 import Header from "../components/Header";
 
-function readStream() {
+export default function ReadStream() {
   const [result, setResult] = useState("");
   
   async function handleClick(){
@@ -85,6 +85,6 @@ function readStream() {
   );
 }
 
-export default readStream;
+
 
 //https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream < -This!
