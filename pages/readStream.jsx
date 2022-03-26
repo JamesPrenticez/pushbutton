@@ -4,7 +4,8 @@ import Header from "../components/Header";
 
 function readStream() {
   const [result, setResult] = useState("");
-  async function handleClick() {
+  
+  async function handleClick(){
     try {
       fetch("https://pushbutton.vercel.app/api/date")
         .then((response) => response.body)
