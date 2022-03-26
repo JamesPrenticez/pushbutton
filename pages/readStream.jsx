@@ -46,7 +46,6 @@ export default function ReadStream() {
           // Do things with result
           console.log("readable stream???????????");
           console.log(result);
-          console.log(response);
           setResult(result);
         });
     } catch (error) {
