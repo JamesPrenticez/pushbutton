@@ -31,4 +31,8 @@ A typical user is a construction company with many projects and multiple subcont
 # Helpful
 - https://jsonlint.com/
 - https://github.com/vercel/fun/issues/56 <- windows can handle vercel dev so we need linux and you need to enable virtulisation in the bios...
-
+- https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-wsl <= you need to install nvm and node again...
+- https://docs.microsoft.com/en-us/windows/python/web-frameworks <= Ubuntu 18.04 LTS comes with Python 3.6 already installed, but it does not come with some of the modules that you may expect to get with other Python installations. We will still need to install pip, the standard package manager for Python, and venv, the standard module used to create and manage lightweight virtual environments. 
+- python3 --version
+Python 3.8.10
+- sudo apt install python3-pip

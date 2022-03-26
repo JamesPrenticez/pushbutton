@@ -2,11 +2,11 @@ import React, { useState } from 'react'
 import Head from "next/head"
 import Header from "../components/Header"
 
-export default function Simple() {
+export default function ReadSteam() {
   const [result, setResult] = useState("");
 
   function handleClick(){
-    fetch("https://pushbutton.vercel.app/api/date")
+    fetch("api/date")
     .then((response) => response.body)
     .then((rb) => {
       const reader = rb.getReader();
