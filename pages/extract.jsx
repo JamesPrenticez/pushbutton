@@ -5,8 +5,8 @@ import axios from 'axios';
 
 export default function Extract() {
   const [result0, setResult0] = useState('')
-  const [result1, setResult1] = useState('')
   const [result2, setResult2] = useState('')
+  const [result3, setResult3] = useState('')
 
   //LOCAL HOST
   async function handleClick0(){
@@ -20,21 +20,22 @@ export default function Extract() {
   }
 
   //VERCEL
-  async function handleClick1(){
+  async function handleClick2(){
     try {
-        const response = await fetch('api/date')
+        //const response = await fetch('https://pushbutton.vercel.app/api/date')
+        const response = await axios.get('https://pushbutton.vercel.app/api/hello')
         console.log(response);
-        setResult1(response.data)
+        setResult2(response.data)
       } catch (error) {
         console.error(error);
       }
   }
 
-  async function handleClick2(){
+  async function handleClick3(){
     try {
-        const response = await fetch('api/cow')
+        const response = await fetch('/api/cow')
         console.log(response);
-        setResult2(response.data)
+        setResult3(response.body)
       } catch (error) {
         console.error(error);
       }
@@ -54,30 +55,14 @@ export default function Extract() {
 
           <div className="flex justify-between bg-[#21262b] cursor-pointer p-4 text-white">
             <div className="">
-              <p>LocalHost = {result0}</p>
+              <p>LocalHost AXIOS = {result0}</p>
             </div>
-
             <div className="ml-auto ">
               <button
                 className="bg-[#007FFF] p-4"
                 onClick={() => handleClick0()}
               >
-                FETCH
-              </button>
-            </div>
-          </div>
-
-          <div className="flex justify-between bg-[#21262b] cursor-pointer p-4 text-white">
-            <div className="">
-              <p>One Date= {result1}</p>
-            </div>
-
-            <div className="ml-auto ">
-              <button
-                className="bg-[#007FFF] p-4"
-                onClick={() => handleClick1()}
-              >
-                FETCH
+                AXIOS
               </button>
             </div>
           </div>
@@ -86,7 +71,6 @@ export default function Extract() {
             <div className="">
               <p>One Date= {result2}</p>
             </div>
-
             <div className="ml-auto ">
               <button
                 className="bg-[#007FFF] p-4"
@@ -96,6 +80,21 @@ export default function Extract() {
               </button>
             </div>
           </div>
+
+          <div className="flex justify-between bg-[#21262b] cursor-pointer p-4 text-white">
+            <div className="">
+              <p>One Date= {result3}</p>
+            </div>
+            <div className="ml-auto ">
+              <button
+                className="bg-[#007FFF] p-4"
+                onClick={() => handleClick3()}
+              >
+                FETCH
+              </button>
+            </div>
+          </div>
+          
         </main>
       </div>
     </>

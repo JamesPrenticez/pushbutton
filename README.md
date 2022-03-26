@@ -25,9 +25,10 @@ A typical user is a construction company with many projects and multiple subcont
       - pip install virtualenv (install)
       - virtualenv venv (create)
       - ``` source venv/Scripts/activate ``` (run)
-
+      - pip install -r requirements.txt
 
 
 # Helpful
 - https://jsonlint.com/
+- https://github.com/vercel/fun/issues/56 <- windows can handle vercel dev so we need linux and you need to enable virtulisation in the bios...
 
