@@ -18,16 +18,17 @@ export default function Home() {
           {({ values, errors }) => (
             <Form className="w-1/2 p-16 space-y-2">
               <MultipleFileUpload name='files'/>
-              <pre className="text-white ">{JSON.stringify({ values, errors }, null, 4)}</pre>
+              <pre className="border border-ocean-1 p-4 rounded-sm">{JSON.stringify({ values, errors }, null, 4)}</pre>
             </Form>
           )}
         </Formik>
       </div>
+
+      <div className='bg-ocean-1 h-16 w-64'></div>
+      <div className='bg-ocean-2 h-16 w-64'></div>
+      <div className='bg-ocean-3 h-16 w-64'></div>
+      <div className='bg-ocean-4 h-16 w-64 '></div>
     </>
   );
 }
 
-// #0a1929 - dark
-// #001e3c - less dark
-// #1e4976 - border
-// #007FFF - light blue

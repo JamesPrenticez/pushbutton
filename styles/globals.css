@@ -4,8 +4,8 @@
 
 @layer base {
   @font-face {
-    font-family: 'helvetica';
-    src: url(/fonts/helvetica-neue.ttf) format('truetype');
+    font-family: 'jakarta';
+    src: url(/fonts/jakarta.ttf) format('truetype');
   }
 
   html {
