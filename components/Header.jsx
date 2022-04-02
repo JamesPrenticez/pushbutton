@@ -17,8 +17,8 @@ export default function Header() {
           </> 
           :
           <>
-            <Link href={'/extract'} passHref>
-              <h3 className="hover:cursor-pointer border-b border-transparent hover:border-b hover:border-ocean-1 mt-2">Extract</h3>
+            <Link href={'/notes'} passHref>
+              <h3 className="hover:cursor-pointer border-b border-transparent hover:border-b hover:border-ocean-1 mt-2">Notes</h3>
             </Link>
             <Link href={'/readstream'} passHref>
               <h3 className="hover:cursor-pointer border-b border-transparent hover:border-b hover:border-ocean-1 mt-2">Read Stream</h3>

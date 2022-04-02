@@ -61,7 +61,7 @@ export default function ReadSteam() {
         <main className="w-full max-w-3xl xl:max-w-7xl space-y-4">
           <h1>Quick Maths</h1>
 
-          <div className="flex justify-between bg-[#21262b] cursor-pointer p-4 text-white">
+          <div className="flex justify-between bg-ocean-4 border border-ocean-1 cursor-pointer p-4 text-white">
             <div className="">
               <p>LocalHost AXIOS = {result}</p>
             </div>
