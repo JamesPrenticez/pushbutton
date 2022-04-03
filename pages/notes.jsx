@@ -78,7 +78,7 @@ export default function Notes({ result }) {
   ) 
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const response = await axios.get(
     `${process.env.NEXT_PUBLIC_BASE_URL}/api/notes`,
     {
