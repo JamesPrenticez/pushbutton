@@ -9,16 +9,16 @@ app = FastAPI()
 # This is rre-populated basic database i.e. a text object lol
 notes = [
     {   "id": "1",
-        "title": "Python Fast API",
+        "title": "Python - Fast API",
         "content": "These notes are served up on a python backend.. even though this is a Next.js frontend... pretty fancy huh. But why would you want to do this you may ask? The intended future for this application is to use a Python library called Data2PDF. Which like other machine learning packages is exclusive to the Python eco system."
     },
     {
         "id": "2",
         "title": "GetStaticProps",
-        "content": "Work in progress, just not as simple as I would have liked - somthing to do with the format of the data - shouldn't be to hard to fix up."
-    }
+        "content": "Servered with - Done"
+    },
     {
-        "id": "2",
+        "id": "3",
         "title": "POST, PATCH, DELETE",
         "content": "We have writen the api for these crud methods we just need to create some user input feilds to hook them up"
     }

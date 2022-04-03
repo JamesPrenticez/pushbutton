@@ -5,7 +5,51 @@
 @layer base {
   @font-face {
     font-family: 'jakarta';
-    src: url(/fonts/jakarta.ttf) format('truetype');
+    font-style: extralight;
+    font-weight: 200;
+    src: url(/fonts/jakarta/PlusJakartaSans-ExtraLight.ttf) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'jakarta';
+    font-style: light;
+    font-weight: 300;
+    src: url(/fonts/jakarta/PlusJakartaSans-Light.ttf) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'jakarta';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/jakarta/PlusJakartaSans-Regular.ttf) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'jakarta';
+    font-style: medium;
+    font-weight: 500;
+    src: url(/fonts/jakarta/PlusJakartaSans-Medium.ttf) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'jakarta';
+    font-style: semibold;
+    font-weight: 600;
+    src: url(/fonts/jakarta/PlusJakartaSans-SemiBold.ttf) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'jakarta';
+    font-style: bold;
+    font-weight: 700;
+    src: url(/fonts/jakarta/PlusJakartaSans-Bold.ttf) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'jakarta';
+    font-style: extrabold;
+    font-weight: 800;
+    src: url(/fonts/jakarta/PlusJakartaSans-ExtraBold.ttf) format('truetype');
   }
 
   html {
