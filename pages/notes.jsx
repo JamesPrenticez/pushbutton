@@ -61,8 +61,7 @@ export default function Notes({ result }) {
                           <h4 className="text-ocean-1 text-2xl">
                             {note.id}. {note.title.toUpperCase()}
                           </h4>
-                          <p className="font-light">{note.content}</p>
-                          <p className="font-thin">{note.content}</p>
+                          <p>{note.content}</p>
                         </div>
                       ) 
                     })}
