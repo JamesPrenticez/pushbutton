@@ -1,46 +1,55 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Head from "next/head";
-import Header from '../components/Header';
 import { Form, Formik } from "formik";
 import MultipleFileUpload from "../components/MultipleFileUpload"
+import { project } from '../constants'
 
 export default function Home() {
   return (
-    <>
+      <div className="flex w-full min-h-screen max-w-7xl mx-auto bg-ocean-4 pt-[7rem] pb-[1rem]">
       <Head>
-        <title>Push Button | Home</title>
+        <title>{project.name} | Home</title>
       </Head>
-
-      <Header />
-
-      <div className="flex justify-center w-full">
-        <Formik  initialValues={{files: []}} onSubmit={() => {}}>
-          {({ values, errors }) => (
-            <Form className="w-1/2 p-16 space-y-2">
-              <MultipleFileUpload name='files'/>
-              <pre className="border border-ocean-1 p-4 rounded-sm">{JSON.stringify({ values, errors }, null, 4)}</pre>
-            </Form>
-          )}
+        
+        <Formik 
+          initialValues={{files: []}} 
+          onSubmit={(values) => {console.log(values)}}
+        >
+          {({ values, errors }) => {
+            // console.log(values.files)
+            // console.log(values.files.url)
+            return (
+              <Form className="flex w-full justify-between space-x-4 px-4">
+                <div className='w-full'>
+                  <MultipleFileUpload name='files'/>
+                </div>
+                <div className='w-full bg-gray-100 text-black border border-ocean-1  rounded-md'>
+                  <pre className=" h-full">
+                      {/* {JSON.stringify({ values, errors }, null, 2)} */}
+                      {values.files.map((file, index) => {
+                        return (
+                            <div 
+                              key={file.file.path + index}
+                              className='p-2 '
+                              style={{ backgroundColor: index % 2 === 0 ? '#007FFF33' : '#1e497633' }}
+                            >
+                              <p><b>Filename:</b>&nbsp;{file?.file.path}</p>
+                              <p><b>Candidate Name:</b>&nbsp;{file?.url?.candidate_name}</p>
+                              {file?.url?.data && Object.keys(file.url.data).map((item, index) => (
+                                <div key={item + index}>
+                                  <b>{item}</b>: {file.url.data[item]}
+                                </div>
+                              ))}
+                            </div>
+                          )
+                        }
+                      )}
+                  </pre>
+                </div>
+              </Form>
+            )
+          }}
         </Formik>
       </div>
-
-      <div>
-        <div className='bg-ocean-1 h-16 w-64'></div>
-        <div className='bg-ocean-2 h-16 w-64'></div>
-        <div className='bg-ocean-3 h-16 w-64'></div>
-        <div className='bg-ocean-4 h-16 w-64 '></div>
-      </div>
-
-      <div>
-        <div className='font-extralight'>ExtraLight: The quick brown fox jumps over the lazy dog</div>
-        <div className='font-light'>Light: The quick brown fox jumps over the lazy dog</div>
-        <div className='font-normal'>Normal: The quick brown fox jumps over the lazy dog</div>
-        <div className='font-medium'>Medium: The quick brown fox jumps over the lazy dog</div>
-        <div className='font-semibold'>SemiBold: The quick brown fox jumps over the lazy dog</div>
-        <div className='font-bold'>Bold: The quick brown fox jumps over the lazy dog</div>
-        <div className='font-extrabold'>ExtraBold: The quick brown fox jumps over the lazy dog</div>
-      </div>
-    </>
   );
 }
-

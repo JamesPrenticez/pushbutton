@@ -36,3 +36,21 @@ A typical user is a construction company with many projects and multiple subcont
 - python3 --version
 Python 3.8.10
 - sudo apt install python3-pip
+
+
+     {/* <div>
+        <div className='bg-ocean-1 h-16 w-64'></div>
+        <div className='bg-ocean-2 h-16 w-64'></div>
+        <div className='bg-ocean-3 h-16 w-64'></div>
+        <div className='bg-ocean-4 h-16 w-64 '></div>
+      </div>
+
+      <div>
+        <div className='font-extralight'>ExtraLight: The quick brown fox jumps over the lazy dog</div>
+        <div className='font-light'>Light: The quick brown fox jumps over the lazy dog</div>
+        <div className='font-normal'>Normal: The quick brown fox jumps over the lazy dog</div>
+        <div className='font-medium'>Medium: The quick brown fox jumps over the lazy dog</div>
+        <div className='font-semibold'>SemiBold: The quick brown fox jumps over the lazy dog</div>
+        <div className='font-bold'>Bold: The quick brown fox jumps over the lazy dog</div>
+        <div className='font-extrabold'>ExtraBold: The quick brown fox jumps over the lazy dog</div>
+      </div> */}

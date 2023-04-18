@@ -3,7 +3,6 @@ import FileHeader from "./FileHeader";
 import ProgressBar from "./ProgressBar";
 
 export default function ValidationError({file, errors, onDelete}) {
-  console.log(errors)
   return (
     <>
       <FileHeader file={file} onDelete={onDelete} />

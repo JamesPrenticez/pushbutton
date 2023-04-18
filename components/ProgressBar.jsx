@@ -2,8 +2,6 @@ import React from 'react'
 
 export default function ProgressBar({progress, errors}) {
   const isError = errors.length
-  console.log('errors', )
-
   return (
     <>
     <div className='flex items-center space-x-2 pt-2 pr-1'>
