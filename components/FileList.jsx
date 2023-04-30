@@ -2,7 +2,7 @@ import React from 'react'
 import SingleFileWithProgress from "./SingleFileWithProgress";
 import ValidationError from "./ValidationError";
 
-const FileList = ({files, word, setFiles}) => {
+const FileList = ({files, keywordsList, setFiles}) => {
 
   const onUpload = (file, url) => {
     setFiles((currentFiles) => currentFiles.map((fileWrapper) => {
@@ -31,7 +31,7 @@ const FileList = ({files, word, setFiles}) => {
           :
             <SingleFileWithProgress
               file={fileWrapper.file}
-              word={word}
+              keywordsList={keywordsList}
               errors={fileWrapper.errors}
               onUpload={onUpload}
               onDelete={onDelete}

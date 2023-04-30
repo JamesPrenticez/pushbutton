@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react"
 import FileHeader from "./FileHeader";
 import ProgressBar from "./ProgressBar";
 
-export default function SingleFileWithProgress({file, word, errors, onUpload, onDelete}) {
+export default function SingleFileWithProgress({file, keywordsList, errors, onUpload, onDelete}) {
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {
     async function upload(){
-      const url = await uploadFile(file, word, setProgress)
+      const url = await uploadFile(file, keywordsList, setProgress)
       console.log("file upload success: ", url)
       onUpload(file, url)
     }
@@ -22,9 +22,8 @@ export default function SingleFileWithProgress({file, word, errors, onUpload, on
   )
 }
 
-function uploadFile(file, word, onProgress){
+function uploadFile(file, keywordsList, onProgress){
   const url = "http://localhost:5000/process_pdf"
-  const list = ['one', 'two', 'three']
 
   return new Promise((res, rej) => {
     const xhr = new XMLHttpRequest()
@@ -42,7 +41,7 @@ function uploadFile(file, word, onProgress){
     }
     const formData = new FormData()
     formData.append('file', file)
-    formData.append('list', JSON.stringify(word))
+    formData.append('list', JSON.stringify(keywordsList))
 
     xhr.send(formData)
   })
